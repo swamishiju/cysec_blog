@@ -11,6 +11,8 @@ The Princess has sent you an encrypted message, but The Enemy has stolen your se
 
 ### Solution
 
+[This challenge was solved organically ✨✨]
+
 The provided `chal.py` was a key exchange facilitated using sparse matrices and a crazy product function.
 
 ``` py
@@ -52,29 +54,65 @@ def my_prod(A, B):
     return C
 ```
 
-[This challenge was solved organically ✨✨]
+Initially we spent some time analyzing the product to see if some nice
+properties like linearity or commutativity were followed. This however didn't
+lead to anything.
 
-Initially we spent some time analyzing the product to see if some trivial
-properties like linearity or commutativity were followed. This however didn't lead to anything.
-Looking at the name of the challenge
-again somewhere in the recesses of my mind I remembered a combinatorial object
-I'd seen in a [Numberphile video](https://www.youtube.com/watch?v=vgZhrEs4tuk) called Young Tableau.
+Then we fell into an amazing rabit hole of the delightfully named [Tropical
+Geometry](https://en.wikipedia.org/wiki/Tropical_geometry) which, also
+unfortunately didn't help much.
+
+
+Looking at the name of the challenge again somewhere in the recesses of my mind
+I remembered a combinatorial object I'd seen in an old [Numberphile
+video](https://www.youtube.com/watch?v=vgZhrEs4tuk) a while back called Young
+Tableau.
 
 The definition of a young tableau (tableau in French means painting) is rather
-simple, but like most things in this neck of math it is deceivingly so.
+simple, but like most things in this neck of math it is deceptively so.
 
 > A Young diagram (also called a Ferrers diagram, particularly when represented
 using dots) is a finite collection of boxes, or cells, arranged in
-left-justified rows, with the row lengths in non-increasing order. (taken from [Young_tableu](https://en.wikipedia.org/wiki/Young_tableau))
+left-justified rows, with the row lengths in non-increasing order. (taken from
+[Young_tableu](https://en.wikipedia.org/wiki/Young_tableau))
 
 A young tableu is an objected obtained by filling in the boxes of the diagram
 with symbols from a totally ordered alphabet (usually taken as some set of
 numbers for brevity).
 
-The tableu can further be called semi standard if the entries are non-decreasing along rows and strictly increasing down columns.
+The tableu can further be called semi standard if the entries are
+non-decreasing along rows and strictly increasing down columns. It is called
+standard if the entries are strictly increasing along both rows and columns,
+and contains all symbols of the alphabet.
+
+After some digging we came across is some nice properties of the tableau that
+showed similarities of elements to the question, namely the
+[Robinson–Schensted](https://en.wikipedia.org/wiki/Robinson%E2%80%93Schensted_correspondence)
+(RS) correspondence and its generalization the
+(RSK)[https://en.wikipedia.org/wiki/Robinson%E2%80%93Schensted%E2%80%93Knuth_correspondence]
+correspondence (K being Knuth).
+
+#### Robinson Schensted correspondence
+
+Permutation $\sigma$ of $\{1\ldots n\}$ can be written as 
+
+$$
+\sigma = \begin{pmatrix}
+1 & 2 & \ldots & n \\
+\sigma_1 & \sigma_2 & \ldots & \sigma_n
+\end{pmatrix}
+$$
+
+where $\sigma(i) = \sigma_i$.
+
+#### Insertion operation on tableux
+
+Schensted devised an insertion operation on tableux for adding an element given a semi-standard tableux. 
 
 > TODO: Explain RSK
+
 > TODO: Explain Plactic Monoids
+
 > TOOD: Link papers
 
 
