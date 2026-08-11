@@ -101,7 +101,11 @@ the insertion element out and continues insertion starting from the next row.
 The process ends when the insertion element is greater than the largest element
 in the row in which case it appends to the row or the element forms a new row.
 
-> TODO: Add illustration
+Example:
+
+Suppose in the below tableau, we are inserting 5, then the following steps are to be done:
+
+> ![Tableau insertion](tableau_insertion.svg)
 
 ### Robinson Schensted correspondence
 
@@ -118,10 +122,8 @@ where $\sigma(i) = \sigma_i$.
 
 The RS correspondence is a bijection between permutations and a pair of standard tableaux obtained as follows.
 
-Let $P, Q$ be empty tableaux. For $i$ increasing from $1$ to $n$ compute $P
-\leftarrow \sigma_i$ and the square $s$ by the insertion procedure; then replace P
-by $P \leftarrow \sigma_i$ and add the entry $i$ to the tableau $Q$ in the square
-$s$.
+Let $P, Q$ be empty tableaux. Let $\leftarrow$ denote insertion and let $s$ be the square into which the last number during got placed during each insertion. Now for each $i$ increasing from $1$ to $n$ compute $P
+\leftarrow \sigma_i$ and the square $s$ by the insertion procedure; after each insertion, put the number $i$ to the square $s$ of the tableau $Q$. Note that both P and Q maintain the same structure, i.e. each corresponding row and column have same size, after each insertion.
 
 If $\sigma$ is a generalized permutation (i.e has repeated elements in the
 first row, basically just a two line array) the bijection is from generalized
