@@ -11,7 +11,7 @@ The Princess has sent you an encrypted message, but The Enemy has stolen your se
 
 ### Solution
 
-[This challenge was solved organically ✨✨]
+> This challenge was solved organically ✨✨
 
 The provided `chal.py` was a key exchange facilitated using sparse matrices and a crazy product function.
 
@@ -89,8 +89,18 @@ After some digging we came across is some nice properties of the tableau that
 showed similarities of elements to the question, namely the
 [Robinson–Schensted](https://en.wikipedia.org/wiki/Robinson%E2%80%93Schensted_correspondence)
 (RS) correspondence and its generalization the
-(RSK)[https://en.wikipedia.org/wiki/Robinson%E2%80%93Schensted%E2%80%93Knuth_correspondence]
+[RSK](https://en.wikipedia.org/wiki/Robinson%E2%80%93Schensted%E2%80%93Knuth_correspondence)
 correspondence (K being Knuth).
+
+#### Insertion operation on tableux
+
+Schensted devised an insertion operation on tableux for adding an element given
+a semi-standard tableux. Intuitively it pushes the first element larger than
+the insertion element out and continues insertion starting from the next row.
+The process ends when the insertion element is greater than the largest element
+in the row in which case it appends to the row or the element forms a new row.
+
+> TODO: Add illustration
 
 #### Robinson Schensted correspondence
 
@@ -105,9 +115,16 @@ $$
 
 where $\sigma(i) = \sigma_i$.
 
-#### Insertion operation on tableux
+The RS correspondence is a bijection between permutations and a pair of standard tableux obtained as follows.
 
-Schensted devised an insertion operation on tableux for adding an element given a semi-standard tableux. 
+Let $P, Q$ be empty tableux. For $i$ increasing from $1$ to $n$ compute $P
+\rarrow \sigma_i$ and the square $s$ by the insertion procedure; then replace P
+by $P \larrow \sigma_i$ and add the entry $i$ to the tableau $Q$ in the square
+$s$.
+
+If $\sigma$ is a generalized permutation (i.e has repeated elements in the
+first row, basically just a two line array) the bijection is from generalized
+permutations to pairs of semi-standard tableux.
 
 > TODO: Explain RSK
 
