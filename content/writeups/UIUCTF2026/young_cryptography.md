@@ -105,7 +105,7 @@ Example:
 
 Suppose in the below tableau, we are inserting 5, then the following steps are to be done:
 
-> ![Tableau insertion](tableau_insertion.svg)
+> ![Tableau insertion](./attachments/tableau_insertion.svg)
 
 ### Robinson Schensted correspondence
 
