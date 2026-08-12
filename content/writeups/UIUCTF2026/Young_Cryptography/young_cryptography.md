@@ -13,7 +13,7 @@ The Princess has sent you an encrypted message, but The Enemy has stolen your se
 
 > This challenge was solved organically ✨✨
 
-The provided `chal.py` was a key exchange facilitated using sparse symmetric
+The provided [`chal.py`]("./attachments/chal.py") was a key exchange facilitated using sparse symmetric
 matrices and a crazy product function.
 
 ``` py
@@ -205,7 +205,7 @@ using Sage's `.bump_multiply(T)` function.
 The aim of the challenge was to find $A \otimes G \otimes B$ from $G$, $A \otimes G$
 and $G \otimes B$. The most straight forward approach is deducing $A$ from $A
 \otimes G$ and then doing $A \otimes (G \otimes B)$. This would then translate to finding a tableau $T_A$ such that
-$T_A.\text{bump_multiply}(T_G) = T_{AG}$ where $T_G, T_{AG}$ are the tableau
+$T_A.\text{bump\_multiply}(T_G) = T_{AG}$ where $T_G, T_{AG}$ are the tableau
 corresponding to $G, AG$.
 
 > TODO: Explain Plactic Monoids
